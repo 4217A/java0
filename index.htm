@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<!-- Reference: -->
+<!-- Video: Simple Weight Converter App With JavaScript & Bootstrap 4 -->
+<!-- By: Traversy Media -->
+<!-- Link: https://www.youtube.com/watch?v=7l-ZAuU8TXc -->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!--Bootstrap style sheet-->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <title>Weight Converter</title>
+  </head>
+
+  <style>
+    body {
+      margin-top: 70px;
+      background-color: #333333;
+      color: #ffffff;
+    }
+
+    /* screen */
+    @media screen and (min-width: 851px) {
+      body {
+      margin-top: 70px;
+      }
+    }
+
+    /* screen X px or LESS */
+    @media screen and (max-width: 850px) {
+      body {
+      margin-top: 40px;
+      }
+    }
+
+  </style>
+
+  <body>
+    <div class="container">
+      <div class="row justify-content-lg-center">
+        <div class="col-lg-8">
+          <h1 class="display-4 text-center mb-3">Weight Converter</h1>
+          <form>
+            <div class="form-group">
+              <input
+                id="lbsInput"
+                type="number"
+                class="form-control form-control-lg"
+                placeholder="Enter Number in Pounds"
+              />
+            </div>
+          </form>
+
+          <div class="card bg-warning mb-2">
+              <div class="card-body">
+                <h4>Ounces: <span id="ozOutput"></span></h4>
+              </div>
+            </div>
+
+            <div id="output">
+            <div class="card bg-success mb-2">
+              <div class="card-body">
+                <h4>Kilograms: <span id="kgOutput"></span></h4>
+              </div>
+            </div>
+
+            <div class="card bg-primary mb-2">
+              <div class="card-body">
+                <h4>Grams: <span id="gramsOutput"></span></h4>
+              </div>
+            </div>
+
+            <div class="card bg-danger mb-2">
+                <div class="card-body">
+                  <h4>Metric Ton: <span id="mtonOutput"></span></h4>
+                </div>
+              </div>
+  
+          <!--hi-->
+          <!--hi-->
+        </div>
+      </div>
+    </div>
+  </body>
+
+  <!--Listen for Input-->
+  <script>
+    document.getElementById('lbsInput').addEventListener('input', function(e){
+      let lbs = e.target.value;
+      
+      document.getElementById('ozOutput').innerHTML = Math.round(100*lbs*16)/100;
+      document.getElementById('kgOutput').innerHTML = Math.round(100*lbs*0.453592)/100;
+      document.getElementById('gramsOutput').innerHTML = Math.round(100*lbs*453.592)/100;
+      document.getElementById('mtonOutput').innerHTML = Math.round(10000*lbs*0.000453592)/10000;
+
+    });
+  </script>
+
+</html>
+
+<!-- 1 lbs = 16 oz -->
+<!-- 1 lbs = 0.453592 kg -->
+<!-- 1 lbs = 453.592 g -->
+<!-- 1 lbs = 0.000453592 Metric Ton -->
+
